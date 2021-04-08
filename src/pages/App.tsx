@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
 import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
@@ -37,23 +37,50 @@ const BodyWrapper = styled.div`
   overflow-x: hidden;
   z-index: 1;
   justify-content: center;
-  background-image: url('/images/group-pancake.svg');
-  background-repeat: no-repeat;
-  background-position: bottom 24px center;
-  background-size: 90%;
+
 
   ${({ theme }) => theme.mediaQueries.xs} {
     background-size: auto;
   }
+`
 
-  ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/arch-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg'),
-      url('/images/left-pancake.svg'), url('/images/right-pancake.svg');
-    background-repeat: no-repeat;
-    background-position: center 420px, 10% 230px, 90% 230px;
-    background-size: contain, 266px, 266px;
-    min-height: 90vh;
-  }
+const Ocean = styled.div`
+height: 5%;
+width:100%;
+position:absolute;
+bottom:0;
+left:0;
+background: #015871;
+`
+
+const wave = keyframes`
+ 0% { margin-left: 0px; }
+ 100% { margin-left: -1600px; }
+`
+const swell = keyframes`
+ 0%, 100% { transform: translate3d(0,-25px,0); }
+ 50% { transform: translate3d(0,5px,0); }
+`
+
+const Wave = styled.div`
+background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+position: absolute;
+top: -198px;
+width: 6400px;
+height: 198px;
+animation: ${wave} 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+transform: translate3d(0, 0, 0);
+`
+
+const WaveTwo = styled.div`
+background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+position: absolute;
+width: 6400px;
+height: 198px;
+transform: translate3d(0, 0, 0);
+top: -175px;
+animation: ${wave} 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, ${swell} 7s ease -1.25s infinite;
+opacity: 1;
 `
 
 const Marginer = styled.div`
@@ -145,7 +172,8 @@ export default function App() {
                   </Web3ReactManager>
                   <Marginer />
                 </BodyWrapper>
-              </Menu>
+                </Menu>
+
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
         </AppWrapper>

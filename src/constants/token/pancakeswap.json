@@ -20,6 +20,15 @@
 
     },
     {
+      "name": "Hydro",
+      "symbol": "HYDRO",
+      "address": "0xf3dbb49999b25c9d6641a9423c7ad84168d00071",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "https://bscscan.com/token/images/projecthydro_32.png"
+
+    },
+    {
       "name": "Bakery Token",
       "symbol": "BAKE",
       "address": "0xe02df9e3e622debdd69fb838bb799e3f168902c5",

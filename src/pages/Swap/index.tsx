@@ -2,7 +2,7 @@ import { CurrencyAmount, JSBI, Token, Trade } from '@pancakeswap-libs/sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
 import { CardBody, ArrowDownIcon, Button, IconButton, Text } from '@pancakeswap-libs/uikit'
-import { ThemeContext } from 'styled-components'
+import styled, { ThemeContext, keyframes } from 'styled-components'
 import AddressInputPanel from 'components/AddressInputPanel'
 import Card, { GreyCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
@@ -35,6 +35,46 @@ import useI18n from 'hooks/useI18n'
 import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import AppBody from '../AppBody'
+
+const Ocean = styled.div`
+height: 5%;
+width:100%;
+position:absolute;
+bottom:0;
+left:0;
+background: #015871;
+display: block;
+`
+
+const wave = keyframes`
+ 0% { margin-left: 0px; }
+ 100% { margin-left: -1600px; }
+`
+const swell = keyframes`
+ 0%, 100% { transform: translate3d(0,-25px,0); }
+ 50% { transform: translate3d(0,5px,0); }
+`
+
+const Wave = styled.div`
+background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+position: absolute;
+top: -198px;
+width: 6400px;
+height: 198px;
+animation: ${wave} 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+transform: translate3d(0, 0, 0);
+`
+
+const WaveTwo = styled.div`
+background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+position: absolute;
+width: 6400px;
+height: 198px;
+transform: translate3d(0, 0, 0);
+top: -175px;
+animation: ${wave} 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, ${swell} 7s ease -1.25s infinite;
+opacity: 1;
+`
 
 const Swap = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -465,7 +505,9 @@ const Swap = () => {
               {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
             </BottomGrouping>
           </CardBody>
+
         </Wrapper>
+
       </AppBody>
       <AdvancedSwapDetailsDropdown trade={trade} />
     </>
