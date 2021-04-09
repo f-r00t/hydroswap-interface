@@ -141,8 +141,6 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedLanguage])
 
-  useGetDocumentTitlePrice()
-
   return (
     <Suspense fallback={null}>
       <HashRouter>
