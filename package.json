@@ -1,5 +1,5 @@
 {
-  "name": "@pancakeswap/interface",
+  "name": "@hydroswap-libs//interface",
   "description": "Pancakeswap Interface",
   "homepage": ".",
   "private": true,
