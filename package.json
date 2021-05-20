@@ -1,5 +1,5 @@
 {
-  "name": "@hydroswap-libs//interface",
+  "name": "@hydroswap-libs/interface",
   "description": "Pancakeswap Interface",
   "homepage": ".",
   "private": true,
@@ -7,8 +7,8 @@
     "@binance-chain/bsc-connector": "^1.0.0",
     "@crowdin/crowdin-api-client": "^1.8.16",
     "@ethersproject/experimental": "^5.0.1",
-    "@hydroswap-libs/sdk": "1.0.1",
-    "@hydroswap-libs/uikit": "^0.20.0",
+    "@pancakeswap-libs/sdk": "1.0.1",
+    "hydroswap-uikit": "^0.0.2",
     "@popperjs/core": "^2.4.4",
     "@reach/dialog": "^0.10.3",
     "@reach/portal": "^0.10.3",

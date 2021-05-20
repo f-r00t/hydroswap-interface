@@ -1,4 +1,4 @@
-import { MenuEntry, menuStatus } from '@pancakeswap-libs/uikit'
+import { MenuEntry, menuStatus } from 'hydroswap-uikit'
 
 const config: MenuEntry[] = [
   {
@@ -39,7 +39,7 @@ const config: MenuEntry[] = [
   {
     label: 'NFT',
     icon: 'NftIcon',
-    href: '#', 
+    href: '#',
     status: menuStatus.SOON
   },
   // {
