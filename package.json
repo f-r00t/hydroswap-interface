@@ -8,7 +8,7 @@
     "@crowdin/crowdin-api-client": "^1.8.16",
     "@ethersproject/experimental": "^5.0.1",
     "@pancakeswap-libs/sdk": "1.0.1",
-    "hydroswap-uikit": "^0.0.2",
+    "hydroswap-uikit": "^0.0.3",
     "@popperjs/core": "^2.4.4",
     "@reach/dialog": "^0.10.3",
     "@reach/portal": "^0.10.3",
@@ -82,6 +82,7 @@
     "@walletconnect/web3-provider": "1.1.1-alpha.0"
   },
   "scripts": {
+    "prepare": "grep -rl 0xBCfCcbde45cE874adCB698cC183deBcF17952812 node_modules/@pancakeswap-libs/sdk/dist/ | xargs sed -i 's/0xBCfCcbde45cE874adCB698cC183deBcF17952812/0xF58cC77C7Fb1372d1E078b7335cAFa1E5ec9c029/g && grep -rl 0xd0d4c4cd0848c93cb4fd1f498d7013ee6bfb25783ea21593d5834f5d250ece66 node_modules/@pancakeswap-libs/sdk/dist/ | xargs sed -i 's/0xd0d4c4cd0848c93cb4fd1f498d7013ee6bfb25783ea21593d5834f5d250ece66/0x6e3afb08919ae00604c5c93a22463eb3bd8a68f0255b31976d682f16603143c3/g'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
